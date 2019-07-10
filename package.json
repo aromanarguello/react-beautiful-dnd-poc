@@ -6,6 +6,7 @@
   "main": "src/index.tsx",
   "dependencies": {
     "@atlaskit/css-reset": "5.0.2",
+    "@types/react-beautiful-dnd": "^11.0.2",
     "react": "16.8.4",
     "react-beautiful-dnd": "11.0.4",
     "react-dom": "16.8.4",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@types/react": "16.8.8",
     "@types/react-dom": "16.8.2",
+    "@types/styled-components": "^4.1.17",
     "typescript": "3.3.3"
   },
   "scripts": {
