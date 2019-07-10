@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
+    "@atlaskit/css-reset": "5.0.2",
     "react": "16.8.4",
     "react-beautiful-dnd": "11.0.4",
     "react-dom": "16.8.4",

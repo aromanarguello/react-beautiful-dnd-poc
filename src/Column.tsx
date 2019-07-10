@@ -1,5 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
+import Task from "./Task";
+import { Droppable } from "react-beautiful-dnd";
 
 type Column = {
   id: string;
@@ -7,10 +9,15 @@ type Column = {
   taskIds: string[];
 };
 
+type Tasks = {
+  id: string;
+  content: string;
+};
+
 interface IColumnProps {
   key?: string;
   column: Column;
-  taskIds: string;
+  tasks: Tasks[];
 }
 
 const Container = styled.div`
@@ -27,11 +34,20 @@ const TaskList = styled.div`
   padding: 8px;
 `;
 
-const Column: React.FC<IColumnProps> = props => {
+const Column: React.FC<IColumnProps> = ({ tasks, column: { title } }) => {
   return (
     <Container>
-      <Title>{props.column.title}</Title>
-      <TaskList>Tasks go here</TaskList>
+      <Title>{title}</Title>
+      <Droppable>
+        {({ innerRef, droppableProps, placeholder }) => (
+          <TaskList {...droppableProps} innerRef={innerRef}>
+            {tasks.map((task, index) => (
+              <Task key={task.id} task={task} index={index} />
+            ))}
+            {placeholder}
+          </TaskList>
+        )}
+      </Droppable>
     </Container>
   );
 };
